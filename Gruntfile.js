@@ -71,9 +71,9 @@ module.exports = function (grunt) {
 
       js: {
         src: [
-          'src/js/bootstrap-treefy.js'
+          'src/js/jquery.table-treeify.js'
         ],
-        dest: 'dist/bootstrap-treefy.js'
+        dest: 'dist/jquery.table-treeify.js'
       }
     },
 
@@ -102,8 +102,8 @@ module.exports = function (grunt) {
         preserveComments: 'some'
       },
       js: {
-        src: 'dist/bootstrap-treefy.js',
-        dest: 'dist/bootstrap-treefy.min.js'
+        src: 'dist/jquery.table-treeify.js',
+        dest: 'dist/jquery.table-treeify.min.js'
       }
     },
 
@@ -113,11 +113,11 @@ module.exports = function (grunt) {
           strictMath: true,
           sourceMap: true,
           outputSourceFiles: true,
-          sourceMapURL: 'bootstrap-treefy.css.map',
-          sourceMapFilename: 'dist/css/bootstrap-treefy.css.map'
+          sourceMapURL: 'jquery.table-treeify.css.map',
+          sourceMapFilename: 'dist/css/jquery.table-treeify.css.map'
         },
-        src: 'src/less/bootstrap-treefy.less',
-        dest: 'dist/css/bootstrap-treefy.css'
+        src: 'src/less/jquery.table-treeify.less',
+        dest: 'dist/css/jquery.table-treeify.css'
       }
     },
 
@@ -129,7 +129,7 @@ module.exports = function (grunt) {
         options: {
           map: true
         },
-        src: ['dist/css/bootstrap-treefy.css']
+        src: ['dist/css/jquery.table-treeify.css']
       }
     },
 
@@ -168,7 +168,7 @@ module.exports = function (grunt) {
         csslintrc: 'src/less/.csslintrc'
       },
       dist: [
-        'dist/css/bootstrap-treefy.css'
+        'dist/css/jquery.table-treeify.css'
       ]
     },
 
@@ -179,8 +179,8 @@ module.exports = function (grunt) {
         advanced: false
       },
       minifyCore: {
-        src: 'dist/css/bootstrap-treefy.css',
-        dest: 'dist/css/bootstrap-treefy.min.css'
+        src: 'dist/css/jquery.table-treeify.css',
+        dest: 'dist/css/jquery.table-treeify.min.css'
       }
     },
 
@@ -216,7 +216,7 @@ module.exports = function (grunt) {
     compress: {
       main: {
         options: {
-          archive: 'bootstrap-treefy-<%= pkg.version %>-dist.zip',
+          archive: 'jquery.table-treeify-<%= pkg.version %>-dist.zip',
           mode: 'zip',
           level: 9,
           pretty: true
@@ -226,7 +226,7 @@ module.exports = function (grunt) {
             expand: true,
             cwd: 'dist/',
             src: ['**'],
-            dest: 'bootstrap-treefy-<%= pkg.version %>-dist'
+            dest: 'jquery.table-treeify-<%= pkg.version %>-dist'
           }
         ]
       }

@@ -1,13 +1,14 @@
 {
-  "name": "bootstrap-treefy",
-  "description": "Bootstrap Tree Table",
+  "name": "jquery-table-treeify",
+  "description": "JQuery plugin to add tree-like expand/collapse behavior to HTML tables",
   "version": "1.1.0",
   "keywords": [
-    "bootstrap",
+    "jquery",
     "table",
-    "treefy"
+    "tree",
+    "treeify"
   ],
-  "author": "Ke Sun <tdxt6409fch@163.com>",
+  "author": [ "Talia Imbrescia <talia@teachboost.com>", "Ke Sun <tdxt6409fch@163.com>" ],
   "devDependencies": {
     "btoa": "~1.1.2",
     "glob": "~5.0.3",

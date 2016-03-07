@@ -32,43 +32,43 @@
         }
     }
 
-    Node.prototype.initIndent = function(treeFy) {
+    Node.prototype.initIndent = function(tableTreeify) {
         this.row.find('.treetable-indent').remove();
         var expander = this.row.find('.treetable-expander');
-        var depth = this.getDepth(treeFy.$table);
+        var depth = this.getDepth(tableTreeify.$table);
         for (var i = 0; i < depth; i++) {
-            var indentTemplate = treeFy.options.indentTemplate;
+            var indentTemplate = tableTreeify.options.indentTemplate;
             $(indentTemplate).insertBefore(expander);
         }
     }
 
-    Node.prototype.initExpander = function(treeFy) {
+    Node.prototype.initExpander = function(tableTreeify) {
         var self = this;
-        var element = self.row.find('td').get(treeFy.options.treeColumn);
+        var element = self.row.find('td').get(tableTreeify.options.treeColumn);
         var $expander = self.row.find('.treetable-expander');
         if ($expander) {
             $expander.remove();
         }
-        var expanderTemplate = treeFy.options.expanderTemplate;
+        var expanderTemplate = tableTreeify.options.expanderTemplate;
         $(expanderTemplate).prependTo(element).click(function(event) {
             //self.toggle($(this).closest('tr'));
             self.toggle();
         });
     }
 
-    Node.prototype.renderExpand = function(treeFy) {
+    Node.prototype.renderExpand = function(tableTreeify) {
         var $expander = this.row.find('.treetable-expander');
         if ($expander) {
             if (!this.row.hasClass('treetable-collapsed')) {
-                $expander.removeClass(treeFy.options.expanderCollapsedClass);
-                $expander.addClass(treeFy.options.expanderExpandedClass);
+                $expander.removeClass(tableTreeify.options.expanderCollapsedClass);
+                $expander.addClass(tableTreeify.options.expanderExpandedClass);
             } else {
-                $expander.removeClass(treeFy.options.expanderExpandedClass);
-                $expander.addClass(treeFy.options.expanderCollapsedClass);
+                $expander.removeClass(tableTreeify.options.expanderExpandedClass);
+                $expander.addClass(tableTreeify.options.expanderCollapsedClass);
             }
         } else {
-            this.initExpander(treeFy);
-            this.renderExpand(treeFy);
+            this.initExpander(tableTreeify);
+            this.renderExpand(tableTreeify);
         }
     }
 
@@ -128,7 +128,7 @@
         return node;
     }
 
-    var TreeFy = function (element, options) {
+    var TableTreeify = function (element, options) {
         this.options = options;
 
         this.$table = $(element);
@@ -138,9 +138,9 @@
 
     }
 
-    TreeFy.VERSION = '0.0.1'
+    TableTreeify.VERSION = '0.0.1'
 
-    TreeFy.prototype.getAllNodes = function() {
+    TableTreeify.prototype.getAllNodes = function() {
         var self = this;
         var result = $.grep(self.$table.find('tr'), function(trElement) {
             var nodeData = $(trElement).attr('data-node');
@@ -154,10 +154,11 @@
             node.addChildren(self.$table);
             allNodes.push(node);
         });
+        console.log( 'allNodes: ', allNodes );
         return allNodes;
     }
 
-    TreeFy.prototype.initTree = function(allNodes) {
+    TableTreeify.prototype.initTree = function(allNodes) {
         var self = this;
         var rootNodes = [];
         $.each(allNodes, function() {
@@ -173,7 +174,7 @@
         self.render(rootNodes);
     }
 
-    TreeFy.prototype.initNode = function(nodes) {
+    TableTreeify.prototype.initNode = function(nodes) {
         var self = this;
         $.each(nodes, function() {
             var rootNode = this.row;
@@ -193,7 +194,7 @@
         });
     }
 
-    TreeFy.prototype.render = function(nodes) {
+    TableTreeify.prototype.render = function(nodes) {
         var self = this;
         $.each(nodes, function(node) {
             //若父节点折叠, 隐藏子节点
@@ -218,11 +219,11 @@
         var ret;
         return this.each(function () {
             var $this = $(this)
-            var data  = $this.data('treeFy')
+            var data  = $this.data('tableTreeify')
 
             if (!data) {
-                var options = $.extend(true, {}, $.fn.treeFy.defaults, typeof option == 'object' && option);
-                $this.data('treeFy', (data = new TreeFy(this, options)));
+                var options = $.extend(true, {}, $.fn.tableTreeify.defaults, typeof option == 'object' && option);
+                $this.data('tableTreeify', (data = new TableTreeify(this, options)));
             }
             if (typeof option == 'string') data[option].call($this)
         })
@@ -247,11 +248,11 @@
         return this;
     }
 
-    var old = $.fn.treeFy
+    var old = $.fn.tableTreeify
 
-    $.fn.treeFy             = Plugin
-    $.fn.treeFy.Constructor = TreeFy
-    $.fn.treeFy.defaults = {
+    $.fn.tableTreeify             = Plugin
+    $.fn.tableTreeify.Constructor = TableTreeify
+    $.fn.tableTreeify.defaults = {
 
         expanderTemplate: '<span class="treetable-expander"></span>',
 
@@ -270,8 +271,8 @@
     // ALERT NO CONFLICT
     // =================
 
-    $.fn.treeFy.noConflict = function () {
-        $.fn.treeFy = old
+    $.fn.tableTreeify.noConflict = function () {
+        $.fn.tableTreeify = old
         return this
     }
 

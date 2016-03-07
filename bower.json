@@ -1,21 +1,23 @@
 {
-  "name": "bootstrap-treefy",
+  "name": "jquery-table-treeify",
   "version": "1.1.0",
-  "homepage": "https://github.com/supwisdom/bootstrap-treefy",
+  "homepage": "https://github.com/TeachBoost/jquery-table-treeify",
   "authors": [
+    "Talia Imbrescia <talia@teachboost.com>",
     "Ke Sun <tdxt6409fch@163.com>"
   ],
-  "description": "Bootstrap Tree Table",
+  "description": "JQuery plugin to add tree-like expand/collapse behavior to HTML tables",
   "keywords": [
-    "bootstrap",
+    "jquery",
     "table",
-    "treefy"
+    "tree",
+    "treeify"
   ],
   "license": "MIT",
   "moduleType": "globals",
   "main": [
-    "src/less/bootstrap-treefy.less",
-    "dist/bootstrap-treefy.js"
+    "src/less/jquery.table-treeify.less",
+    "dist/jquery.table-treeify.js"
   ],
   "ignore": [
     "**/.*",
