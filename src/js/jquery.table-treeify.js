@@ -33,13 +33,8 @@
     }
 
     Node.prototype.initIndent = function(tableTreeify) {
-        this.row.find('.treetable-indent').remove();
-        var expander = this.row.find('.treetable-expander');
         var depth = this.getDepth(tableTreeify.$table);
-        for (var i = 0; i < depth; i++) {
-            var indentTemplate = tableTreeify.options.indentTemplate;
-            $(indentTemplate).insertBefore(expander);
-        }
+        this.row.addClass( 'treetable-depth-' + depth );
     }
 
     Node.prototype.initExpander = function(tableTreeify) {
