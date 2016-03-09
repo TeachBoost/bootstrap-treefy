@@ -182,7 +182,7 @@
             var click_nodes = [];
             click_nodes.push(this);
             $row.find('.treetable-expander').on("click", function(event) {
-                event.stopPropagation();
+                // event.stopPropagation();
                 self.render(click_nodes);
             });
         });
