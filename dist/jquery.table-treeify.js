@@ -149,7 +149,6 @@
             node.addChildren(self.$table);
             allNodes.push(node);
         });
-        console.log( 'allNodes: ', allNodes );
         return allNodes;
     }
 
@@ -194,9 +193,9 @@
         $.each(nodes, function(node) {
             //若父节点折叠, 隐藏子节点
             if (this.isCollapsed(self.$table)) {
-                this.row.hide();
+                this.row.addClass( 'hidden' );
             } else {
-                this.row.show();
+                this.row.removeClass( 'hidden' );
             }
             if (!this.isLeaf()) {
                 this.renderExpand(self);
